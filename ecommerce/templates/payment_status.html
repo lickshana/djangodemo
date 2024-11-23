@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section id="latest-blog" class="py-5" style="background-image: url('{% static 'images/background-pattern.jpg' %}');background-repeat: no-repeat;background-size:cover;">
+
+<div class="container mt-5 p-5 bg-light w-50" style="margin-bottom:100px">
+    {% if status == True %}
+    <h2  style="font-family: EamesBold;">Payment successful</h2>
+    {% else %}
+    <h2  style="font-family: EamesBold;">Payment Failed. Try again Later
+    </h2>
+    {% endif %}
+</div>
+</section>
+{% endblock %}

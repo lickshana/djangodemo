@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section id="latest-blog" class="py-5" style="background-image: url('{% static 'images/background-pattern.jpg' %}');background-repeat: no-repeat;background-size:cover;">
+
+<h2 class="text-center my-2 fw-bold"  style="font-family: EamesBold;">BILLING DETAILS...</h2>
+<form method="POST" enctype="multipart/form-data" class="mx-4">
+  {% csrf_token %}
+<div class=" mx-2">
+  <label  class="form-label">Address :</label>
+  <input type="text" class="form-control" name="a" placeholder="Address">
+</div>
+<div class="mb-3 mx-2">
+  <label  class="form-label">Phone number :</label>
+  <input type="number" class="form-control" name="ph" placeholder="phone number">
+</div>
+<div class="mb-3 mx-2">
+  <label  class="form-label">Pin :</label>
+  <input type="password" class="form-control" name="pin" placeholder="Pin">
+</div>
+
+<div class=" mx-2">
+<input type="submit" class="form-control" value="Submit">
+</div>
+</form>
+</section>
+{% endblock %}

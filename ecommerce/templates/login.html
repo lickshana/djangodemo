@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section id="latest-blog" class="py-5" style="background-image: url('{% static 'images/background-pattern.jpg' %}');background-repeat: no-repeat;background-size:cover;">
+
+<h2 class="text-center my-3 fw-bold"  style="font-family: EamesBold;">LOGIN</h2>
+<form method="POST" enctype="multipart/form-data" class="mx-4">
+  {% csrf_token %}
+<div class="mb-3 mx-2">
+  <label  class="form-label">Username :</label>
+  <input type="text" class="form-control" name="u" placeholder="username">
+</div>
+<div class="mb-3 mx-2">
+  <label  class="form-label">Password :</label>
+  <input type="password" class="form-control" name="p" placeholder="password">
+</div>
+<div class=" mx-2">
+<input type="submit" class="form-control" value="Login">
+</div>
+</form>
+</section>
+{% endblock %}

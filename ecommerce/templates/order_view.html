@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section id="latest-blog" class="py-5" style="background-image: url('{% static 'images/background-pattern.jpg' %}');background-repeat: no-repeat;background-size:cover;">
+
+  <h2 class="text-center text-muted"  style="font-family: EamesBold;">Order Details</h2>
+    {% for i in orders %}
+    <div class="card mb-3 mx-auto" style="max-width: 480px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="{{i.product.image.url}}" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <p class="card-title">Product : {{i.product.name}}</p>
+        <p class="card-text">Price: {{i.product.price}}</p>
+        <p class="card-text">Quantity : {{i.no_of_items}}</p>
+        <p class="card-text">Ordered no : {{i.ordered_date}}</p>
+        <p class="card-text">Ordered id : {{i.order_id}}</p>
+        <p class="card-text">Delivery status : {{i.delivery_status}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+    {% endfor %}
+</section>
+{% endblock %}

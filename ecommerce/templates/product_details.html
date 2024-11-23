@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section id="latest-blog" class="py-5" style="background-image: url('{% static 'images/background-pattern.jpg' %}');background-repeat: no-repeat;background-size:cover;">
+
+<div class="card mb-3 mx-auto my-3" style="max-width: 740px;">
+  <div class="row g-0 ">
+    <div class="col-md-4 my-5">
+      <img src="{{product.image.url}}" class="img-fluid rounded-start" alt="..." height="400px">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body m-3">
+        <h5 class="card-title ">{{product.name}}</h5>
+        <h5 class="card-title"><i class="fa-solid fa-indian-rupee-sign"></i><i>{{product.price}}</i></h5>
+        <p class="card-text">Stock :<i>{{product.stock}}</i> </p>
+        <p class="card-text text-secondary">{{product.desc}}</p>
+        {% if user.is_superuser == True %}
+           {% if product.stock > 0 %}
+        <p>Product In stock</p>
+        <a href="{% url 'shop:add_stock' product.id %}" class="btn btn-outline-secondary">Add Stock</a>
+        {% else %}
+        <p>Product Out of stock</p>
+        <a href="{% url 'shop:add_stock' product.id %}" class="btn btn-outline-secondary">Add Stock</a>
+        {% endif %}
+
+
+        {% else %}
+        {% if product.stock > 0 %}
+        <a href="{% url 'cart:cart' product.id %}" class="btn btn-outline-secondary">Add to cart</a>
+        {% else %}
+        <h5>Out of Stock</h5>
+        {% endif %}
+
+
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+{% endblock %}
